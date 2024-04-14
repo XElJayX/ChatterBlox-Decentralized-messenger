@@ -1,0 +1,51 @@
+.UserCard{
+    background-color: rgba(0,0,0, 0.25);
+    border-radius: .5rem;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+}
+
+.UserCard_box_img{
+    border-radius: 50%;
+}
+
+.UserCard_box_info{
+    line-height: .6;
+}
+.you button{
+    background-color: rgba(0,0,0, 0.25);
+    color: white;
+    width: 50%;
+    padding: 1rem;
+    border: none;
+    border-radius: .5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.Friend_Add button{
+    background-color: rgba(0,0,0, 0.25);
+    color: #1B9198;
+    width: 50%;
+    padding: 1rem;
+    border: none;
+    border-radius: .5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.UserCard_box_info button:hover{
+    background-color: #1B9198;
+    color:white;
+}
+.number{
+    position: absolute;
+    right: 1rem;
+    padding: 1rem 1.3rem;
+    border-radius: 50%;
+    background-color: #1B9198;
+    top: 1rem;
+}

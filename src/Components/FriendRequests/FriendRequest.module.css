@@ -1,0 +1,71 @@
+.friend_requests {
+    margin: 20px;
+}
+
+.friend_requests h1 {
+    text-align: center;
+}
+
+.friend_request_list {
+    list-style-type: none;
+    background-color: rgba(0, 0, 0, 0.25);
+    margin-left: 10rem;
+    margin-right: 10rem;
+    padding: 0;
+}
+
+.friend_request_item {
+    border: 1px solid #3C6F72;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    
+}
+
+.friend_request_info {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.friend_request_message {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.friend_request_actions {
+    display: flex;
+}
+
+.friend_request_actions button {
+    margin-right: 5px;
+}
+
+/* Add styling for the accept image */
+.accept_image {
+    cursor: pointer; /* Show pointer cursor on hover */
+    width: 20px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+    transition: transform 0.5s ease;
+}
+
+.accept_image:hover{
+    transform: scale(1.1);
+}
+
+.ignore_image {
+    cursor: pointer; /* Show pointer cursor on hover */
+    width: 20px; /* Adjust the width as needed */
+    height: 10px; /* Adjust the height as needed */
+    transition: transform 0.5s ease;
+}
+.ignore_image:hover{
+    transform: scale(1.1);
+}
+
+.no_friend_requests{
+    text-align: center;
+    font-weight: 600;
+    
+}

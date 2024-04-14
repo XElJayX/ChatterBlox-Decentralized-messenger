@@ -1,0 +1,137 @@
+.Model {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .Model_box {
+    position: relative;
+    width: 85%;
+    max-width: 900px; /* Adjust as needed */
+  }
+  
+  .content {
+    z-index: 1;
+    background: transparent; /* Adjust opacity as needed */
+    padding: 2rem;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(30px);
+    border-radius: 1rem;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .content h1 {
+    font-size: 3rem;
+    color: white;
+    line-height: 0.9;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .content h1 span {
+    display: block;
+    font-size: 5rem;
+    color: #e8f0f0 ;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .content p,
+  .content small {
+    color: white;
+    
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .inputContainer {
+    margin-bottom: 1rem;
+    width: 100%; /* Make input container full width */
+  }
+  
+  .inputContainer input {
+    width: calc(100% - 2rem); /* Make input field full width minus padding */
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .inputContainer ::placeholder{
+    color: white;
+    font-weight: 500;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    gap: 1rem;
+    width: 100%; /* Make button container full width */
+  }
+  
+  .buttonContainer button {
+    flex: 1; /* Make button take remaining space */
+     /* Adjust padding */
+    
+    color: black;
+    border:none;
+    border-radius: 28px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .buttonone{
+    background-color: #e8f0f0;
+    font-weight: 400;
+    outline-color: #147d84;
+    outline: 20px;
+    
+  }
+
+  .buttonone p{
+    color: #147d84;
+    font-weight: 700;
+    margin-left: 10px;
+    
+  }
+
+  .buttontwo{
+    background-color: #147d84;
+  }
+  .buttontwo p{
+    color: #e8f0f0;
+    font-weight: 700;
+    margin-left: 10px;
+    
+  }
+
+  .buttonContainer button:hover {
+    /* Add a drop shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adjust the values as needed */
+    border: 3px solid #147d84;
+    
+    
+    /* Change text color to transparent */
+    
+    
+    /* Optionally scale the button */
+    transform: scale(1.05);
+  }
+  
+  
+  .buttonContainer button img {
+    margin-right: 10rem;
+    gap: 10rem; /* Add space between image and text */
+  }
