@@ -222,10 +222,11 @@ const readUser = async(userAddress)=>{
     try {
         const contract = await connectingWithContract();
         await contract.removeFriend(friendAddress);
+        await contract.clearMessage(friendAddress);
         // Optionally, you can reload the page or update state to reflect the changes.
-        // window.location.reload();
+        window.location.reload();
         // Or you can fetch data again to update the state.
-        fetchData();
+        //fetchData();
     } catch (error) {
         console.error("Error removing friend:", error);
     }

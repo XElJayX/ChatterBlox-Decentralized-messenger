@@ -15,10 +15,10 @@ const UserCard = ({ el, i, sendFriendRequest }) => {
     const [isFriend, setIsFriend] = useState(false);
     const [isCurrentUser, setIsCurrentUser] = useState(false);
     const [userIndex, setUserIndex] = useState(i + 1); // Initialize user index with i + 1
+    const [isHovered, setIsHovered] = useState(false); // Initialize isHovered state to false
+    const [requestSent, setRequestSent] = useState(false); // Track if friend request has been sent
 
-    useEffect(() => {
-        
-    
+    useEffect(() => {  
         // Check if the displayed user is already a friend
         const checkFriendship = () => {
             if (contextFriendLists) {
@@ -32,7 +32,6 @@ const UserCard = ({ el, i, sendFriendRequest }) => {
             const currentUser = currentUserAccount.toLowerCase(); // Convert to lowercase
             const displayedUser = el.accountAddress.toLowerCase(); // Convert to lowercase
     
-            
             if (currentUser === displayedUser) {
                 return true;
             }
@@ -41,23 +40,35 @@ const UserCard = ({ el, i, sendFriendRequest }) => {
 
         // Update the user index
         setUserIndex(i + 1);
-        console.log("User index:", userIndex);
     
         checkFriendship();
         setIsCurrentUser(checkCurrentUser());
-    }, [contextFriendLists, el.accountAddress, currentUserAccount, i, userIndex]);
+    }, [contextFriendLists, el.accountAddress, currentUserAccount, i]);
     
     const handleAddFriend = () => {
         // Check if the user is already friends with the person
         if (isFriend) {
-            // If already friends, do nothing
-            return;
+            removeFriend(el.accountAddress);
+        } else {
+            // Otherwise, send the friend request
+            sendFriendRequest({ accountAddress: el.accountAddress, name: el.name });
+            // Update the UI to show that the request is sent
+            setRequestSent(true);
         }
+    };
 
-        // Otherwise, send the friend request
-        sendFriendRequest({ accountAddress: el.accountAddress, name: el.name });
-        // Update the UI to show that the request is sent
-        setIsFriend(true);
+    // Function to remove friend
+    const removeFriend = async (friendAddress) => {
+        try {
+            const contract = await connectingWithContract();
+            await contract.removeFriend(friendAddress);
+            // Optionally, you can reload the page or update state to reflect the changes.
+            // window.location.reload();
+            // Or you can fetch data again to update the state.
+            fetchData();
+        } catch (error) {
+            console.error("Error removing friend:", error);
+        }
     };
 
     return (
@@ -77,13 +88,18 @@ const UserCard = ({ el, i, sendFriendRequest }) => {
                     {/* Render different button text based on whether the user is already friends */}
                     {isCurrentUser ? (
                         <div className={Style.you}>
-                        <button>You</button>
+                            <button>You</button>
                         </div>
                     ) : (
                         <div className={Style.Friend_Add}>
-                        <button onClick={handleAddFriend}>
-                            {isFriend ? "Friends" : "Add Friend"}
-                        </button>
+                            <button 
+                                onClick={handleAddFriend} 
+                                onMouseEnter={() => setIsHovered(true)} 
+                                onMouseLeave={() => setIsHovered(false)}
+                                className={`${Style.button} ${isFriend && isHovered ? Style.removeFriend : ""}`}
+                            >
+                                {isFriend ? (isHovered ? "Remove Friend" : "Friends") : (requestSent ? "Friend Request Sent" : "Add Friend")}
+                            </button>
                         </div>
                     )}
                 </div>

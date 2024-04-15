@@ -1,51 +1,50 @@
-.UserCard{
-    background-color: rgba(0,0,0, 0.25);
-    border-radius: .5rem;
+.UserCard {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 0.5rem;
     text-align: center;
     padding: 1rem;
     position: relative;
 }
 
-.UserCard_box_img{
+.UserCard_box_img {
     border-radius: 50%;
 }
 
-.UserCard_box_info{
-    line-height: .6;
-}
-.you button{
-    background-color: rgba(0,0,0, 0.25);
-    color: white;
-    width: 50%;
-    padding: 1rem;
-    border: none;
-    border-radius: .5rem;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer
+.UserCard_box_info {
+    line-height: 0.6;
 }
 
-.Friend_Add button{
-    background-color: rgba(0,0,0, 0.25);
-    color: #1B9198;
+/* Default button style */
+.UserCard_box_info button {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: #1b9198;
     width: 50%;
     padding: 1rem;
     border: none;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
 }
 
-.UserCard_box_info button:hover{
-    background-color: #1B9198;
-    color:white;
+/* Style for the default button on hover */
+.UserCard_box_info button:hover {
+    background-color: #1b9198;
+    color: white;
 }
-.number{
+
+/* Style for the "Remove Friend" button */
+.Friend_Add button.removeFriend {
+    background-color: #ff4d4f; /* Red color */
+    color: white;
+}
+
+/* Style for the number badge */
+.number {
     position: absolute;
     right: 1rem;
     padding: 1rem 1.3rem;
     border-radius: 50%;
-    background-color: #1B9198;
+    background-color: #1b9198;
     top: 1rem;
 }
