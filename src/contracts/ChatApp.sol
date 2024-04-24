@@ -280,4 +280,42 @@ contract ChatApp {
         }
         return userList[userAddress].friendList.length;
     }
+
+    // CHANGE USERNAME
+    function changeUsername(string calldata newName) external {
+        require(checkUserExists(msg.sender), "User does not exist");
+        require(bytes(newName).length > 0, "Username cannot be empty");
+
+        // Update username in userList
+        userList[msg.sender].name = newName;
+
+        // Update username in getAllUsers array
+        for (uint256 i = 0; i < getAllUsers.length; i++) {
+            if (getAllUsers[i].accountAddress == msg.sender) {
+                getAllUsers[i].name = newName;
+                break;
+            }
+        }
+    }
+
+    // DELETE ACCOUNT
+    function deleteAccount() external {
+        require(checkUserExists(msg.sender), "User does not exist");
+
+        // Delete user data
+        delete userList[msg.sender];
+
+        // Delete user from getAllUsers array
+        for (uint256 i = 0; i < getAllUsers.length; i++) {
+            if (getAllUsers[i].accountAddress == msg.sender) {
+                // Shift subsequent elements down by one position
+                for (uint256 j = i; j < getAllUsers.length - 1; j++) {
+                    getAllUsers[j] = getAllUsers[j + 1];
+                }
+                // Reduce the length of the array by one
+                getAllUsers.pop();
+                break;
+            }
+        }
+    }
 }

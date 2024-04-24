@@ -44,6 +44,7 @@ export const ChatAppProvider = ({children})=> {
             //GET ALL APP USER LIST
             const userList = await contract.getAllAppUser();
             setUserLists(userList);
+            console.log("Userlist:",userList)
             
         }
         catch(error){
@@ -53,6 +54,13 @@ export const ChatAppProvider = ({children})=> {
     useEffect(()=>{
         fetchData();
     }, []);
+    
+    useEffect(() => {
+      console.log("Current user account in ChatAppContext:", account);
+    }, [account]);
+    
+      
+  
 
 
     //READ MESSAGE
@@ -221,16 +229,42 @@ const readUser = async(userAddress)=>{
   const removeFriend = async (friendAddress) => {
     try {
         const contract = await connectingWithContract();
+        // Remove friend from smart contract
         await contract.removeFriend(friendAddress);
-        await contract.clearMessage(friendAddress);
-        // Optionally, you can reload the page or update state to reflect the changes.
-        window.location.reload();
-        // Or you can fetch data again to update the state.
-        //fetchData();
+        // Clear messages for the removed friend
+        await contract.clearMessages(friendAddress);
+        // Update friendLists state to reflect the removal of the friend
+        setFriendLists(prevFriendLists => prevFriendLists.filter(friend => friend.accountAddress !== friendAddress));
+        // Optionally, you can reload the page or trigger a fetch to update the state
+        // window.location.reload();
+        // Or you can fetch data again to update the state
+        // fetchData();
     } catch (error) {
         console.error("Error removing friend:", error);
     }
 };
+
+const changeUsername = async (newName) => {
+  try {
+      const contract = await connectingWithContract();
+      await contract.changeUsername(newName);
+      setuserName(newName); // Update the local state with the new username
+  } catch (error) {
+      console.error("Error changing username:", error);
+  }
+};
+
+const deleteAccount = async () => {
+  try {
+      const contract = await connectingWithContract();
+      await contract.deleteAccount();
+      setAccount(""); // Reset the account state
+      setuserName(""); // Reset the username state
+  } catch (error) {
+      console.error("Error deleting account:", error);
+  }
+};
+
 
   
   
@@ -249,6 +283,8 @@ const readUser = async(userAddress)=>{
             CheckIfWalletConnected, 
             addFriends, 
             sendMessage,
+            changeUsername,
+            deleteAccount,
             clearMessages, 
             readUser,
             fetchReceivedRequests,

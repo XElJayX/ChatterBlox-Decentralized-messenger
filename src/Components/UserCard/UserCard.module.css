@@ -1,10 +1,13 @@
 .UserCard {
     background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 0.5rem;
     text-align: center;
     padding: 1rem;
     position: relative;
 }
+
+
 
 .UserCard_box_img {
     border-radius: 50%;
@@ -12,6 +15,10 @@
 
 .UserCard_box_info {
     line-height: 0.6;
+}
+
+.you button{
+    color:white;
 }
 
 /* Default button style */
@@ -25,6 +32,7 @@
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Style for the default button on hover */
@@ -38,6 +46,8 @@
     background-color: #ff4d4f; /* Red color */
     color: white;
 }
+
+
 
 /* Style for the number badge */
 .number {

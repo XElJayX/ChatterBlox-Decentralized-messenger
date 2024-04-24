@@ -1,25 +1,35 @@
+.friend_requests_wrapper {
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 80px;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 .friend_requests {
-    margin: 20px;
+    margin-bottom: 40px;
+    
 }
 
 .friend_requests h1 {
     text-align: center;
+    color: #fff;
+    font-size: 48px;
 }
 
 .friend_request_list {
     list-style-type: none;
-    background-color: rgba(0, 0, 0, 0.25);
-    margin-left: 10rem;
-    margin-right: 10rem;
     padding: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    
 }
 
 .friend_request_item {
     border: 1px solid #3C6F72;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    padding: 10px;
-    
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
 }
 
 .friend_request_info {
@@ -27,45 +37,35 @@
     align-items: center;
 }
 
-
-
 .friend_request_message {
     flex-grow: 1;
-    margin-right: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 20px;
 }
 
 .friend_request_actions {
     display: flex;
 }
 
-.friend_request_actions button {
-    margin-right: 5px;
-}
-
-/* Add styling for the accept image */
-.accept_image {
-    cursor: pointer; /* Show pointer cursor on hover */
-    width: 20px; /* Adjust the width as needed */
-    height: 20px; /* Adjust the height as needed */
-    transition: transform 0.5s ease;
-}
-
-.accept_image:hover{
-    transform: scale(1.1);
-}
-
+.accept_image,
 .ignore_image {
-    cursor: pointer; /* Show pointer cursor on hover */
-    width: 20px; /* Adjust the width as needed */
-    height: 10px; /* Adjust the height as needed */
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
     transition: transform 0.5s ease;
+    
 }
-.ignore_image:hover{
+
+.accept_image:hover,
+.ignore_image:hover {
     transform: scale(1.1);
 }
 
-.no_friend_requests{
+.no_friend_requests {
     text-align: center;
-    font-weight: 600;
-    
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
 }

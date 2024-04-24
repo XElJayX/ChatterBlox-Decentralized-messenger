@@ -10,6 +10,7 @@ const UserCard = ({ el, i, sendFriendRequest }) => {
     const {
         friendLists: contextFriendLists,
         account: currentUserAccount,
+        removeFriend,
     } = useContext(ChatAppContext);
 
     const [isFriend, setIsFriend] = useState(false);
@@ -26,6 +27,7 @@ const UserCard = ({ el, i, sendFriendRequest }) => {
                 setIsFriend(isAlreadyFriend);
             }
         };
+        
     
         // Check if the displayed user is the current user
         const checkCurrentUser = () => {
@@ -57,19 +59,9 @@ const UserCard = ({ el, i, sendFriendRequest }) => {
         }
     };
 
-    // Function to remove friend
-    const removeFriend = async (friendAddress) => {
-        try {
-            const contract = await connectingWithContract();
-            await contract.removeFriend(friendAddress);
-            // Optionally, you can reload the page or update state to reflect the changes.
-            // window.location.reload();
-            // Or you can fetch data again to update the state.
-            fetchData();
-        } catch (error) {
-            console.error("Error removing friend:", error);
-        }
-    };
+    useEffect(() => {
+        console.log("Current username in UserCard component:", el.name);
+    }, [currentUserAccount]);
 
     return (
         <div className={Style.UserCard}>

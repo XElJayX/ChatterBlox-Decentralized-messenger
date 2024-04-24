@@ -2,5 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/alluser": "pages/alluser.js"
+  "/alluser": "pages/alluser.js",
+  "/FriendRequestsPage": "pages/FriendRequestsPage.js",
+  "/settings": "pages/settings.js",
+  "/": "pages/index.js"
 }
